@@ -1,4 +1,6 @@
 // YOUR CODE HERE
+import {computerTurn} from './computer-turn.js';
+
 console.log("dope")
 
 //event listener on button div
@@ -7,64 +9,14 @@ console.log("dope")
     //computer innerHTML is randomly replaced with img and matching text
     //whoWon()
 
-//computer turn class
-function getRandom() {
-    return Math.floor(Math.random() * 3)
-};
-//rock = 0
-//paper = 1
-//scissors = 2
 
-function computerTurn() {
-    let compTurnImage = document.getElementById("computer-image");
-    let turnText = document.querySelector(".computer-image-name");
-
-    let choice = getRandom();
-    if (choice === 0) {
-        compTurnImage.setAttribute("src", "./images/rock.png");
-        turnText.innerHTML = "<span>Rock</span>";
-        return 0;
-    } else if (choice === 1) {
-        compTurnImage.setAttribute("src", "./images/paper.png");
-        turnText.innerHTML = "<span>Paper</span>";
-        return 1;
-    } else {
-        compTurnImage.setAttribute("src", "./images/scissors.png");
-        turnText.innerHTML = "<span>Scissors</span>";
-        return 2;
-    };
-}
-
-
-//game logic class?
-function whoWon() {
-
-//if computer = 0, then
-    //if player = rock, tie
-    //else if player = scissors, lose
-    //else if player = paper, win
-
-//if computer = 2, then
-    //if player = rock, win
-    //else if player = scissors, tie
-    //else if player = paper, lose
-
-//if computer = 1, then
-    //if player = rock, lose
-    //else if player = scissors, win
-    //else if player = paper, tie
-}
-
-    //update game stats spans (ids)
-    //Winning player background classlist.add background-color: deepskyblue
-
-//event listener on reset button
-    //set game stats spans to 0
 let playerButton = document.querySelector(".button-container");
 playerButton.addEventListener("click", event => {
 
-    let turnImage = document.querySelector(".turn-image");
-    let compTurn = document.getElementById("computer-image-name");
+    let turnImage = document.querySelector("#player1 .turn-image");
+    let compTurn = document.querySelector("#player2 .turn-image");
+
+    setTimeout(computerTurn, 500);
 
     turnImage.innerHTML = "SHOOT!";
     compTurn.innerHTML = "SHOOT!";
@@ -79,6 +31,31 @@ playerButton.addEventListener("click", event => {
         } else if (playerTurn === "scissors-button") {
             turnImage.innerHTML = '<img id="player-image" src="./images/scissors.png"/>';
         };
-        computerTurn();
     }, 500);
 });
+
+
+//game logic class?
+function whoWon() {
+
+    //if computer = 0, then
+        //if player = rock, tie
+        //else if player = scissors, lose
+        //else if player = paper, win
+
+    //if computer = 2, then
+        //if player = rock, win
+        //else if player = scissors, tie
+        //else if player = paper, lose
+
+    //if computer = 1, then
+        //if player = rock, lose
+        //else if player = scissors, win
+        //else if player = paper, tie
+    }
+
+        //update game stats spans (ids)
+        //Winning player background classlist.add background-color: deepskyblue
+
+    //event listener on reset button
+        //set game stats spans to 0
