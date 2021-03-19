@@ -4,72 +4,83 @@ let playerDiv = document.getElementById("player1");
 let computerDiv = document.getElementById("player2");
 let turnImage = document.querySelector("#player1 .turn-image");
 
-
+let winStat = 0;
 let winStats = document.getElementById("wins");
+function handleWin() {
+    winStat++;
+    winStats.innerHTML = winStat;
+    playerDiv.classList.add("winner");
+};
+let tieStat = 0;
 let tieStats = document.getElementById("ties");
+function handleTie() {
+    tieStat++;
+    tieStats.innerHTML = tieStat;
+};
+let lossStat = 0;
 let lossStats = document.getElementById("losses");
+function handleLoss() {
+    lossStat++;
+    lossStats.innerHTML = lossStat;
+    computerDiv.classList.add("winner");
+};
+export function clearWinner() {
+    playerDiv.classList.remove("winner");
+    computerDiv.classList.remove("winner");
+}
+
 
 //game logic class?
 export function whoWon(playerTurn, player2) {
-    //if computer = 0, then
-        //if player = rock, tie
-        //else if player = scissors, lose
-        //else if player = paper, win
+
     if (player2 === 0) {
         if (playerTurn === "rock-button") {
             turnImage.innerHTML = '<img id="player-image" src="./images/rock.png"/>';
-            tieStats.innerHTML++;
+            handleTie();
         } else if (playerTurn === "paper-button") {
             turnImage.innerHTML = '<img id="player-image" src="./images/paper.png"/>';
-            winStats.innerHTML++;
+            handleWin();
         } else if (playerTurn === "scissors-button") {
             turnImage.innerHTML = '<img id="player-image" src="./images/scissors.png"/>';
-            lossStats.innerHTML++;
+            handleLoss();
         };
     };
-    //if computer = 1, then
-        //if player = rock, lose
-        //else if player = scissors, win
-        //else if player = paper, tie
+
     if (player2 === 1) {
         if (playerTurn === "rock-button") {
             turnImage.innerHTML = '<img id="player-image" src="./images/rock.png"/>';
-            lossStats.innerHTML += 1;
+            handleLoss();
         } else if (playerTurn === "paper-button") {
             turnImage.innerHTML = '<img id="player-image" src="./images/paper.png"/>';
-            tieStats.innerHTML += 1;
+            handleTie();
         } else if (playerTurn === "scissors-button") {
             turnImage.innerHTML = '<img id="player-image" src="./images/scissors.png"/>';
-            winStats.innerHTML += 1;
+            handleWin();
         };
     };
-    //if computer = 2, then
-        //if player = rock, win
-        //else if player = scissors, tie
-        //else if player = paper, lose
+
     if (player2 === 2) {
         if (playerTurn === "rock-button") {
             turnImage.innerHTML = '<img id="player-image" src="./images/rock.png"/>';
-            winStats.innerHTML += 1;
+            handleWin();
         } else if (playerTurn === "paper-button") {
             turnImage.innerHTML = '<img id="player-image" src="./images/paper.png"/>';
-            lossStats.innerHTML += 1;
+            handleLoss();
         } else if (playerTurn === "scissors-button") {
             turnImage.innerHTML = '<img id="player-image" src="./images/scissors.png"/>';
-            tieStats.innerHTML += 1;
+            handleTie();
         };
     };
 }
 
-        //update game stats spans (ids)
-        //Winning player background classlist.add background-color: deepskyblue
-
-    //event listener on reset button
-        //set game stats spans to 0
 let resetButton = document.querySelector(".game-controls");
 
 resetButton.addEventListener("click", event => {
-    winStats.innerHTML = 0;
-    tieStats.innerHTML = 0;
-    lossStats.innerHTML = 0;
+    clearWinner();
+    winStat = 0;
+    winStats.innerHTML = winStat;
+    tieStat = 0;
+    tieStats.innerHTML = tieStat;
+    lossStat = 0;
+    lossStats.innerHTML = lossStat;
 })

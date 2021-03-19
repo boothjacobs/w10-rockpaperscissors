@@ -52,7 +52,8 @@ body {
     background-color: white;
 }
 
-.winner {
+#player1.winner,
+#player2.winner {
     /* color: dodgerblue; */
     background-color: gold;
 }
