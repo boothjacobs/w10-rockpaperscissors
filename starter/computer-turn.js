@@ -21,27 +21,29 @@ function countdown() {
     }, 500);
 };
 
+ let paperImage = "<img id='computer-image' src='./images/paper.png'/>";
+ let rockImage = "<img id='computer-image' src='./images/rock.png'/>";
+ let scissorImage = "<img id='computer-image' src='./images/scissors.png'/>"
+
 export function computerTurn() {
 
     let choice = getRandom();
     countdown();
 
-    let 
-
     if (choice === 0) {
-        compTurnImage.innerHTML = '<img id="computer-image" src="./images/paper.png"/>';
+        compTurnImage.innerHTML = rockImage;
         turnText.innerHTML = "<span>Rock</span>";
-        console.log(compTurnImage)
+        // console.log(compTurnImage)
         return 0;
     } else if (choice === 1) {
-        compTurnImage.innerHTML = '<img id="computer-image" src="./images/paper.png"/>';
+        compTurnImage.innerHTML = paperImage;
         turnText.innerHTML = "<span>Paper</span>";
-        console.log(compTurnImage)
+        // console.log(compTurnImage)
         return 1;
     } else {
-        compTurnImage.innerHTML = '<img id="computer-image" src="./images/paper.png"/>';
+        compTurnImage.innerHTML = scissorImage;
         turnText.innerHTML = "<span>Scissors</span>";
-        console.log(compTurnImage)
+        // console.log(compTurnImage)
         return 2;
     };
 
