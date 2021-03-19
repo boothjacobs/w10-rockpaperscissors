@@ -12,7 +12,7 @@ playerButton.addEventListener("click", event => {
 
     turnImage.innerHTML = "SHOOT!";
     let player2 = computerTurn();
-
+    // console.log(player2);
     let playerTurn = event.target.id;
 
     setTimeout(() => {

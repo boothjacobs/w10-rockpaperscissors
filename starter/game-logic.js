@@ -2,6 +2,8 @@ import {computerTurn} from './computer-turn.js';
 
 let playerDiv = document.getElementById("player1");
 let computerDiv = document.getElementById("player2");
+let turnImage = document.querySelector("#player1 .turn-image");
+
 
 let winStats = document.getElementById("wins");
 let tieStats = document.getElementById("ties");
@@ -16,13 +18,13 @@ export function whoWon(playerTurn, player2) {
     if (player2 === 0) {
         if (playerTurn === "rock-button") {
             turnImage.innerHTML = '<img id="player-image" src="./images/rock.png"/>';
-            tieStats.innerHTML += 1;
+            tieStats.innerHTML++;
         } else if (playerTurn === "paper-button") {
             turnImage.innerHTML = '<img id="player-image" src="./images/paper.png"/>';
-            winStats.innerHTML += 1;
+            winStats.innerHTML++;
         } else if (playerTurn === "scissors-button") {
             turnImage.innerHTML = '<img id="player-image" src="./images/scissors.png"/>';
-            lossStats.innerHTML += 1;
+            lossStats.innerHTML++;
         };
     };
     //if computer = 1, then

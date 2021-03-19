@@ -25,20 +25,17 @@ export function computerTurn() {
             compTurnImage.innerHTML = rockImage;
             turnText.innerHTML = "<span>Rock</span>";
             // console.log(compTurnImage)
-            return 0;
         } else if (choice === 1) {
             compTurnImage.innerHTML = paperImage;
             turnText.innerHTML = "<span>Paper</span>";
             // console.log(compTurnImage)
-            return 1;
         } else {
             compTurnImage.innerHTML = scissorImage;
             turnText.innerHTML = "<span>Scissors</span>";
             // console.log(compTurnImage)
-            return 2;
         };
     }, 500)
-
+    return choice;
 }
 
    // function countdown() {
