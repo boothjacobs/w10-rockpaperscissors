@@ -14,9 +14,9 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* border: 2px solid black; */
+    border-radius: 10px;
     color: white;
-    background-color: #191970;
+    background-color: dodgerblue;
 }
 
 .game-stats {
@@ -45,13 +45,23 @@ body {
 }
 
 #player1 {
-    background-color: cornsilk;
+    background-color: white;
 }
 
 #player2 {
-    background-color: silver;
+    background-color: white;
 }
 
+.winner {
+    /* color: dodgerblue; */
+    background-color: gold;
+}
+
+#comp-turn-img {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 .player {
     height: 60vh;
@@ -66,6 +76,7 @@ body {
 #player-image, #computer-image {
     height: 250px;
     width: 250px;
+    filter: saturate(0);
 }
 
 #computer-image {
@@ -88,6 +99,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* border: 2px solid #800080; */
-    background-color: #191970;
+    border-radius: 10px;
+    background-color: dodgerblue;
 }

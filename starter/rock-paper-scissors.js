@@ -1,5 +1,6 @@
 // YOUR CODE HERE
 import {computerTurn} from './computer-turn.js';
+import { whoWon } from './game-logic.js';
 
 console.log("dope")
 
@@ -7,22 +8,16 @@ let playerButton = document.querySelector(".button-container");
 playerButton.addEventListener("click", event => {
 
     let turnImage = document.querySelector("#player1 .turn-image");
-    let compTurn = document.querySelector("#player2 .turn-image");
-
-    computerTurn();
+    // let compTurn = document.querySelector("#player2 .turn-image");
 
     turnImage.innerHTML = "SHOOT!";
-    compTurn.innerHTML = "SHOOT!";
+    let player2 = computerTurn();
 
     let playerTurn = event.target.id;
 
     setTimeout(() => {
-        if (playerTurn === "rock-button") {
-            turnImage.innerHTML = '<img id="player-image" src="./images/rock.png"/>';
-        } else if (playerTurn === "paper-button") {
-            turnImage.innerHTML = '<img id="player-image" src="./images/paper.png"/>';
-        } else if (playerTurn === "scissors-button") {
-            turnImage.innerHTML = '<img id="player-image" src="./images/scissors.png"/>';
-        };
+        whoWon(playerTurn, player2);
     }, 500);
+
+
 });
